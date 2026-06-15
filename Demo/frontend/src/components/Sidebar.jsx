@@ -56,7 +56,7 @@ function Sidebar() {
 
 
 {/* <NavLink
-  to="/dashboard"
+  to="/dashboard/"
   className={({ isActive }) =>
     `w-14 h-14 flex items-center justify-center rounded-full 
      text-xs font-semibold transition-all duration-200
@@ -67,7 +67,8 @@ function Sidebar() {
      }`
   }
 >
-My Profile
+   SOCKET
+
 </NavLink> */}
 
 

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import socket from "./socket";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -16,6 +18,18 @@ import "react-toastify/dist/ReactToastify.css";
 // import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
+
+
+
+  useEffect(() => {
+  console.log("App Loaded");
+
+  socket.on("connect", () => {
+    console.log("Socket Connected");
+    console.log(socket.id);
+  });
+
+}, []);
 
   return (
 
