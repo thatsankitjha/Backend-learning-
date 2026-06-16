@@ -29,6 +29,13 @@ function App() {
     console.log(socket.id);
   });
 
+
+
+  //   messgae backend 
+
+  socket.on("welcome",(message)=>{
+    console.log("hi from backend",message);
+  })
 }, []);
 
   return (

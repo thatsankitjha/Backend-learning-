@@ -16,14 +16,18 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5174", 
+    origin: "http://localhost:5174",
     credentials: true,
   },
 });
 
-//    runs when new client connnect to socket   
+
+//    runs when new client connnect to socket
 io.on("connection", (socket) => {
-  console.log("User Connected:", socket.id);   
+  console.log("User Connected:", socket.id);
+
+socket.emit("welcome", "Welcome to Socket Ankit ");
+
 
   socket.on("disconnect", () => {
     console.log("User Disconnected:", socket.id);
@@ -31,22 +35,15 @@ io.on("connection", (socket) => {
 });
 
 
-// app.use(cors());
-
-app.use(cors({
-  origin: "http://localhost:5174",
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: "http://localhost:5174",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
-
-
-app.use(
-  "/uploads",
-  express.static(path.join(__dirname, "uploads"))
-);
-
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/mydatabase")
