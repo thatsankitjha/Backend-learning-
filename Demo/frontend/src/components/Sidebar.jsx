@@ -55,8 +55,8 @@ function Sidebar() {
 
 
 
-{/* <NavLink
-  to="/dashboard/"
+<NavLink
+  to="/dashboard/chat"
   className={({ isActive }) =>
     `w-14 h-14 flex items-center justify-center rounded-full 
      text-xs font-semibold transition-all duration-200
@@ -67,9 +67,9 @@ function Sidebar() {
      }`
   }
 >
-   SOCKET
+  Chat
 
-</NavLink> */}
+</NavLink>
 
 
         <button

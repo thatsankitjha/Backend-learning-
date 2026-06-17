@@ -100,13 +100,17 @@ const handleRemoveImage = async () => {
                 {name?.charAt(0)?.toUpperCase() || "U"}
               </div>
             )}
-         
-         <button
+ 
+
+
+
+<button
   onClick={handleRemoveImage}
-  className="text-red-500 text-sm mt-45"
+ className="mt-6 ml- 4 px-1.5 py-0.2 text-[9px] bg-red-500 text-white rounded hover:bg-red-600"
 >
-  Remove Photo
+  Remove
 </button>
+
 
 
             {/* <div className="absolute inset-0 rounded-full bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
