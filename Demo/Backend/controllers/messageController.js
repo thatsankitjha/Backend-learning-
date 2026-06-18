@@ -15,9 +15,7 @@ const sendMessage = async (req, res) => {
     const { senderId, receiverId, text } = req.body;
 
     const newMessage = await Message.create({
-      senderId,
-      receiverId,
-      text,
+      senderId,  receiverId,text,
     });
 
     res.status(201).json(newMessage);
@@ -26,7 +24,4 @@ const sendMessage = async (req, res) => {
   }
 };
 
-module.exports = {
-  getMessages,
-  sendMessage,
-};
+module.exports = {  getMessages,sendMessage,};

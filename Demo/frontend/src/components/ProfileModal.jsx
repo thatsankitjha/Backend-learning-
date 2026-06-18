@@ -106,7 +106,7 @@ const handleRemoveImage = async () => {
 
 <button
   onClick={handleRemoveImage}
- className="mt-6 ml- 4 px-1.5 py-0.2 text-[9px] bg-red-500 text-white rounded hover:bg-red-600"
+ className="mt-6 ml- 4 px-1.5 py-0. text-[9px] bg-red-500 text-white rounded hover:bg-red-600"
 >
   Remove
 </button>

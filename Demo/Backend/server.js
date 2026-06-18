@@ -36,8 +36,6 @@ socket.emit("welcome", "Welcome to Socket Ankit ");
 });
 
 
-app.use("/api/", messageRoutes);
-
 app.use(
   cors({
     origin: "http://localhost:5174",
@@ -45,6 +43,9 @@ app.use(
   }),
 );
 app.use(express.json());
+
+app.use("/api/", messageRoutes);
+
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
