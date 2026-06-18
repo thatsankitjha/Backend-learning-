@@ -4,12 +4,13 @@ const cors = require("cors");
 const path = require("path");
 const http = require("http");
 const { Server } = require("socket.io");
-
 const authRoutes = require("./routes/userRouter");
 const productRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 
+
+const messageRoutes = require("./routes/messageRoutes");
 const app = express();
 
 const server = http.createServer(app);
@@ -34,6 +35,8 @@ socket.emit("welcome", "Welcome to Socket Ankit ");
   });
 });
 
+
+app.use("/api/", messageRoutes);
 
 app.use(
   cors({
