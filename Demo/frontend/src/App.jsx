@@ -15,64 +15,56 @@ import DashboardLayout from "./layout/DashboardLayout";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-// import ForgotPassword from "./pages/ForgotPassword";
+import Chat from "./pages/Chat";
 
 function App() {
-
-
-
   useEffect(() => {
-  console.log("App Loaded");
+    console.log("App Loaded");
 
-  socket.on("connect", () => {
-    console.log("Socket Connected");
-    console.log(socket.id);
-  });
+    socket.on("connect", () => {
+      console.log("Socket Connected");
+      console.log(socket.id);
+    });
 
+    //   messgae backend
 
+    socket.on("welcome", (message) => {
+      console.log("hi from backend", message);
+    });
 
-  //   messgae backend 
-
-  socket.on("welcome",(message)=>{
-    console.log("hi from backend",message);
-  })
-}, []);
+    return () => {
+      socket.off("connect");
+      socket.off("welcome");
+    };
+  }, []);
 
   return (
-
     <>
-     <Routes>
+      <Routes>
+        <Route path="/" element={<Login />} />
 
-        <Route path="/" element={<Login />}/>
         {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
 
-        <Route path="/signup"element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
 
-         <Route path="/dashboard"element={
+        <Route
+          path="/dashboard"
+          element={
             <ProtectedRoute>
               <DashboardLayout />
             </ProtectedRoute>
           }
         >
-
- <Route index element={<Dashboard />}/>
- <Route   path="products"element={<Products />}/>
- <Route   path="cart" element={<CartPage />}/>
-
- </Route>
-  {/* <Route  path="/profile"element={<Profile />} /> */}
-
+          <Route index element={<Dashboard />} />
+          <Route path="products" element={<Products />} />
+          <Route path="cart" element={<CartPage />} />
+          <Route path="chat" element={<Chat />} />
+        </Route>
       </Routes>
 
-
-
-
       <ToastContainer />
-
     </>
-
   );
-
 }
 
 export default App;
