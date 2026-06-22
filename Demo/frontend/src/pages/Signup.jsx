@@ -51,7 +51,7 @@ function Signup() {
 
     alert("Signup Successful");
 
-    navigate("/login");
+    navigate("/");
   } catch (error) {
     alert(error.response?.data?.message || "Signup Failed");
   }
