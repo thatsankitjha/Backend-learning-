@@ -1,3 +1,12 @@
+
+const users = [
+{id: 1, name: "Ankit"},
+{id:2, name:"Mehul Sir"},
+{id:3, name: "Ritika"},
+{id:4, name:"Vicky Sir"}
+
+];
+
 function ChatUsers({ selectedUser, setSelectedUser }) {
   return (
     <div className="w-72 border-r p-4">
@@ -6,7 +15,24 @@ function ChatUsers({ selectedUser, setSelectedUser }) {
         Users
       </h2>
 
-      <div
+
+{
+  users.map((user) => (
+    <div
+      key={user.id}
+      onClick={() => setSelectedUser(user)}
+      className={`p-3 rounded mb-2 cursor-pointer ${
+        selectedUser?.id === user.id
+          ? "bg-blue-500 text-white"
+          : "bg-gray-100"
+      }`}
+    >
+      {user.name}
+    </div>
+  ))
+}
+
+      {/* <div
         onClick={() =>
           setSelectedUser({
             id: 1,
@@ -68,7 +94,7 @@ function ChatUsers({ selectedUser, setSelectedUser }) {
         }`}
       >
         Vicky Sir
-      </div>
+      </div> */}
 
     </div>
   );
