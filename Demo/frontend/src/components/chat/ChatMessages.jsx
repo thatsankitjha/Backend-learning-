@@ -13,6 +13,10 @@ function ChatMessages() {
       <div className="bg-blue-500 text-white p-2 rounded w-fit ml-auto">
         How are you?
       </div>
+{/* 
+          <div className="bg-gray-200 p-2 rounded w-fit mb-2">
+        fine
+      </div> */}
 
     </div>
   );
