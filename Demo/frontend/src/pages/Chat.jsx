@@ -9,8 +9,38 @@ function Chat() {
   const [selectedUser, setSelectedUser] = useState(null);
  const [inputMessage, setInputMessage] = useState("");
 
+//  const sendMessage = () =>{
+//   console.log("sendMessage")
+//  }
 
- const messagesData = {
+// const sendMessage = () => {
+//   if (!selectedUser || !inputMessage.trim()) return;
+
+//   console.log(selectedUser.id);
+//   console.log(inputMessage);
+// };
+
+
+
+const sendMessage = () => {
+  if (!selectedUser || !inputMessage.trim()) return;
+
+  setMessageData((prev) => ({
+    ...prev,
+
+    [selectedUser.id]: [
+      ...(prev[selectedUser.id] || []),
+
+      {
+        text: inputMessage,
+      },
+    ],
+  }));
+
+  setInputMessage("");
+};
+
+ const[ messagesData,setMessageData]= useState ({
   1: [
     { text: "Hello Ankit" },
     { text: "How are you?" },
@@ -28,7 +58,7 @@ function Chat() {
   4: [
     { text: "Hi Vicky Sir" },
   ],
-};
+});
 
 
   return (
@@ -51,7 +81,11 @@ function Chat() {
         <ChatMessages messages={selectedUser ? messagesData[selectedUser.id] : []} />
 
 
-        <MessageInput inputMessage={inputMessage} setInputMessage={setInputMessage} />
+        <MessageInput 
+        inputMessage={inputMessage}
+         setInputMessage={setInputMessage}
+         sendMessage={sendMessage}
+          />
 
       </div>
 
