@@ -7,6 +7,29 @@ import MessageInput from "../components/chat/MessageInput";
 function Chat() {
 
   const [selectedUser, setSelectedUser] = useState(null);
+ const [inputMessage, setInputMessage] = useState("");
+
+
+ const messagesData = {
+  1: [
+    { text: "Hello Ankit" },
+    { text: "How are you?" },
+  ],
+
+  2: [
+    { text: "Hi Mehul Sir" },
+    { text: "Project completed?" },
+  ],
+
+  3: [
+    { text: "Hello Ritika" },
+  ],
+
+  4: [
+    { text: "Hi Vicky Sir" },
+  ],
+};
+
 
   return (
     <div className="h-[85vh] flex border rounded-lg overflow-hidden">
@@ -25,8 +48,10 @@ function Chat() {
 
 
 
-        <ChatMessages />
-        <MessageInput />
+        <ChatMessages messages={selectedUser ? messagesData[selectedUser.id] : []} />
+
+
+        <MessageInput inputMessage={inputMessage} setInputMessage={setInputMessage} />
 
       </div>
 
