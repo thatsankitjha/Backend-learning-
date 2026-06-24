@@ -9,11 +9,6 @@ function MessageInput({
   console.log(inputMessage);
 
 
-  // const [selectedUser, setSelectedUser] = useState(null);
-  // const [inputMessage, setInputMessage] = useState("");
-  // const sendMessage = () =>{
-  //   console.log("send clicked")
-  // }
 // const sendMessage = () => {
 //   if (!selectedUser || !inputMessage.trim()) return;
 

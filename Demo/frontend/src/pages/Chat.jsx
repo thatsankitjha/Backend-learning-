@@ -33,6 +33,7 @@ const sendMessage = () => {
 
       {
         text: inputMessage,
+        sender: "me",
       },
     ],
   }));
@@ -42,21 +43,21 @@ const sendMessage = () => {
 
  const[ messagesData,setMessageData]= useState ({
   1: [
-    { text: "Hello Ankit" },
-    { text: "How are you?" },
+    { text: "Hello Ankit", sender: "other" },
+    { text: "How are you?", sender: "other" },
   ],
 
   2: [
-    { text: "Hi Mehul Sir" },
-    { text: "Project completed?" },
+    { text: "Hi Mehul Sir", sender: "other" },
+    { text: "Project completed?", sender:"other" },
   ],
 
   3: [
-    { text: "Hello Ritika" },
+    { text: "Hello Ritika", sender:"other" },
   ],
 
   4: [
-    { text: "Hi Vicky Sir" },
+    { text: "Hi Vicky Sir", sender:"other" },
   ],
 });
 
@@ -76,7 +77,7 @@ const sendMessage = () => {
   {selectedUser ? selectedUser.name : "Select User"}
 </div>
 
-
+  
 
         <ChatMessages messages={selectedUser ? messagesData[selectedUser.id] : []} />
 
